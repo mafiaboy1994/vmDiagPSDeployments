@@ -1,0 +1,5 @@
+{
+    "fileUri": "https://raw.githubusercontent.com/mafiaboy1994/vmDiagPSDeployments/main/Linux%20Software%20Checker/pythonChecker.sh",
+    "commandToExecute": ".\\pythonCHecker.json",
+    "managedIdentity": {}
+}
