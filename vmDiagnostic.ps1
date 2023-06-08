@@ -29,5 +29,5 @@ Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.name `
 -Location $vm.Location -ExtensionType LinuxDiagnostic `
 -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic `
 -settings $publicSettings `
--TypeHandlerVersion 4.0 -Verbose -Debug -nowait
+-TypeHandlerVersion 3.0 -Verbose -Debug -nowait
 
