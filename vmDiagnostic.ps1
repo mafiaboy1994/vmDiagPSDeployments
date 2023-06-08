@@ -10,7 +10,7 @@ $vm = Get-AzVM -Status -Name "p66Prd-Sma01"
 #$storageAccountName = Get-AzStorageAccount |?{$_.StorageAccountName -eq "p66guestmonitoringlogs"}| Select *
 
 
-<#
+<# Sas Token for Private Session
 $sasToken = New-AzStorageAccountSASToken -Service Blob,Table `
 -ResourceType Service,Container,Object -Permission "racwdlup" `
 -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountName.ResourceGroupName `
@@ -19,7 +19,8 @@ $sasToken = New-AzStorageAccountSASToken -Service Blob,Table `
 
 $publicSettings = Get-Content -Path .\newPubSettings.json | ConvertFrom-Json -AsHashtable
 
-$privateSettings = Get-Content -Path .\privSettings.json | ConvertFrom-Json -AsHashtable
+# Private Settings 
+#$privateSettings = Get-Content -Path .\privSettings.json | ConvertFrom-Json -AsHashtable
 
 #$protectedSettings = "{'storageAccountName': '$storageAccountName',`
 #'storageAccountSasToken': '$sasToken'}"
@@ -28,5 +29,5 @@ Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.name `
 -Location $vm.Location -ExtensionType LinuxDiagnostic `
 -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic `
 -settings $publicSettings `
--TypeHandlerVersion 3.0 -Verbose -Debug -nowait
+-TypeHandlerVersion 4.0 -Verbose -Debug -nowait
 
